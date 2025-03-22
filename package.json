@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "gh-pages": "^6.3.0",
     "svelte": "^4.2.12",
     "vite": "^5.2.0"
   },
@@ -19,8 +20,7 @@
     "@types/d3": "^7.4.3",
     "@vitejs/plugin-react": "^4.3.0",
     "d3": "^7.9.0",
-    "gh-pages": "^6.1.1",
     "ml-svm": "^2.1.2"
   },
-  "homepage": "https://bhakin.github.io/bhakin.github.io/"
+  "homepage": "https://raoguchi.github.io/svm_visualtionation_mlb/"
 }
