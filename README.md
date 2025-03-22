@@ -1,5 +1,7 @@
 # Linear SVM Visualizer
 
+### By Alex Oguchi and Bhakin Phaneksiri
+
 An interactive educational web app that demonstrates how linear Support Vector Machines (SVMs) work. Built with **Svelte** and **Vite**, it allows users to explore the concepts of hard and soft SVMs, support vectors, and margin optimization through hands-on manipulation of parameters and decision boundaries.
 
 ## 🔍 Overview
