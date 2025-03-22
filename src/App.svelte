@@ -11,26 +11,28 @@
   <!-- Intro -->
   <section class="bg-white rounded-xl shadow-md p-8">
     <h1 class="text-4xl font-extrabold mb-4 text-center text-gray-900">What is a Linear SVM?</h1>
-    <p>Have you ever wondered how banks detect fraudulent transactions or how Gmail classifies spam? That’s the magic of Support Vector Machines (SVMs).</p>
-    <p class="mt-2">SVMs draw a decision boundary to help machines separate data and make decisions. Let’s see this in action with baseball pitch types!</p>
+    <p>Have you guys ever wondered how banks detect fraudulent transactions or how Gmail classifies which email is spam or not? 
+        Well, this is all because of the Support Vector Machines or SVMs which is a powerful algorithm that slices through complex data to uncover any hidden patterns.</p>
+    <p class="mt-2">In simple terms, SVMs basically create a decision boundary that allows the machine to decide what option to pick. Let’s go through how this works:</p>
   </section>
 
   <!-- Pitch Types -->
   <section class="bg-white rounded-xl shadow-md p-8">
     <h2 class="text-2xl font-bold mb-4">The Problem</h2>
+    <p>Let’s say we are looking at the different pitch types in baseball. More specifically, we will be looking at four different pitch types:</p>
     <ul class="list-disc list-inside ml-4 space-y-1">
       <li>Four-Seam Fastball (FF)</li>
       <li>Cutter (FC)</li>
       <li>Changeup (CH)</li>
       <li>Slider (SL)</li>
     </ul>
-    <p class="mt-4">Can a machine predict the pitch type using only Release Speed and Spin Rate?</p>
+    <p class="mt-4">Given only the Release Speed and Release Spin Rate of the ball. Let’s train a machine that has no knowledge of baseball and see what pitch type it will predict based on only the Release Speed and Release Spin Rate.</p>
   </section>
 
   <!-- Visualization -->
   <section class="bg-white rounded-xl shadow-md p-8">
     <h2 class="text-2xl font-bold mb-4">The Visualization</h2>
-    <p>Below is the SVM-trained decision boundary. Try switching pitch pairs to see how the boundary changes.</p>
+    <p>Below is the SVM-trained decision boundary. Try switching pitch pairs to see how the boundary changes for each combination.</p>
 
     <div class="mt-6 border border-gray-300 rounded-lg p-4 bg-gray-100">
       <Scatterplot />
@@ -40,13 +42,14 @@
   <!-- Prediction Example -->
   <section class="bg-white rounded-xl shadow-md p-8">
     <h2 class="text-2xl font-bold mb-4">Prediction Example</h2>
-    <p>If a new data point has a speed of 87 mph and spin rate of 2500 rpm, and the pitch pair is CH & SL, the machine will likely classify it as SL.</p>
+    <p>Observe that if a new data point is added to the graph, the machine will predict the pitch type to be the same as the majority pitch type on the left/right side of the decision boundary. 
+        For instance, if we are looking at Pitch Pair CH & SL and the new point has a Release Speed of 87 mph and a Release Spin Rate of 2500 rpm, then the machine will predict it to be SL as the pitch type.</p>
   </section>
 
   <!-- SVM Limitations -->
   <section class="bg-white rounded-xl shadow-md p-8">
     <h2 class="text-2xl font-bold mb-4">Limitations of SVM</h2>
-    <p>Some pitch pairs have no clear boundary — the data is too close. This can cause occasional misclassifications.</p>
+    <p>Some pitch pairs have no clear boundary — the data is too close. This can cause occasional misclassifications, like a bank wrongly flagging a legitimate transaction as fraud.</p>
   </section>
 
   <!-- Takeaway -->
