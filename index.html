@@ -5,101 +5,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>SVM Visualizer</title>
+
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- MathJax -->
+  <!-- MathJax for LaTeX rendering -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <title>SVM Visualizer</title>
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
   </style>
+  <script type="module" crossorigin src="/svm_viz_mlb/assets/index-BY_Ebrlh.js"></script>
+  <link rel="stylesheet" crossorigin href="/svm_viz_mlb/assets/index-6MszkumR.css">
 </head>
 
-<body class="bg-gray-50 text-gray-800 leading-relaxed">
-  <main class="max-w-3xl mx-auto px-6 py-12 space-y-10">
+<body class="bg-gray-50">
+  <div id="app"></div>
 
-    <!-- SECTION: Intro -->
-    <section class="bg-white rounded-xl shadow-md p-8">
-      <h1 class="text-4xl font-extrabold mb-4 text-center text-gray-900">What is a Linear SVM?</h1>
-      <p>Have you ever wondered how banks detect fraudulent transactions or how Gmail classifies spam? That’s the magic
-        of Support Vector Machines (SVMs).</p>
-      <p>In simple terms, SVMs draw a decision boundary that helps machines separate data and make decisions. Let’s see
-        this in action with baseball pitch types!</p>
-    </section>
-
-    <!-- SECTION: Pitch Types -->
-    <section class="bg-white rounded-xl shadow-md p-8">
-      <h2 class="text-2xl font-bold mb-4">The Problem</h2>
-      <p>We’re looking at four pitch types:</p>
-      <ul class="list-disc list-inside ml-4">
-        <li>Four-Seam Fastball (FF)</li>
-        <li>Cutter (FC)</li>
-        <li>Changeup (CH)</li>
-        <li>Slider (SL)</li>
-      </ul>
-      <p class="mt-4">Given only Release Speed and Spin Rate, can a machine (with no baseball knowledge) predict the
-        pitch type?</p>
-    </section>
-
-    <!-- SECTION: Visualization -->
-    <section class="bg-white rounded-xl shadow-md p-8">
-      <h2 class="text-2xl font-bold mb-4">The Visualization</h2>
-      <p>Below is the SVM-trained decision boundary. Try switching pitch pairs to see how the boundary changes for each
-        combination.</p>
-      <div id="app" class="mt-6"></div>
-    </section>
-
-    <!-- SECTION: Prediction Example -->
-    <section class="bg-white rounded-xl shadow-md p-8">
-      <h2 class="text-2xl font-bold mb-4">Prediction Example</h2>
-      <p>If a new data point has a speed of 87 mph and spin rate of 2500 rpm, and the pitch pair is CH & SL, the machine
-        will likely classify it as SL.</p>
-    </section>
-
-    <!-- SECTION: SVM Limitations -->
-    <section class="bg-white rounded-xl shadow-md p-8">
-      <h2 class="text-2xl font-bold mb-4">Limitations of SVM</h2>
-      <p>In some pitch pairs, no clear boundary is drawn — the data is too close to separate cleanly. This explains
-        occasional misclassifications, like a bank wrongly flagging a legit transaction as fraud.</p>
-    </section>
-
-    <!-- SECTION: Takeaway -->
-    <section class="bg-white rounded-xl shadow-md p-8">
-      <h2 class="text-2xl font-bold mb-4">Key Takeaway</h2>
-      <p>This project shows how vital the decision boundary is. Without it, the machine can’t make decisions — and this
-        logic powers spam filters, fraud detection, and much more.</p>
-    </section>
-
-    <!-- SECTION: Math -->
-    <section class="bg-white rounded-xl shadow-md p-8">
-      <h2 class="text-2xl font-bold mb-4">The Math Behind SVM</h2>
-      <p>SVMs aim to maximize the margin between decision boundaries and training data. Here’s the math:</p>
-      <ul class="list-disc list-inside ml-4 mt-2">
-        <li>Hard SVM: \( \vec{w}^\star = \sum_{i \in S} y_i a_i \text{Aug}(\vec{x}^{(i)}) \)</li>
-        <li>Soft SVM: \( \min_{\vec{w}, \vec{\epsilon}} \lVert{\vec{w}}\rVert^2 + C \sum \epsilon_i \)</li>
-      </ul>
-      <p class="mt-2">Where \( C \) controls the tradeoff between margin size and misclassification tolerance.</p>
-    </section>
-
-    <!-- SECTION: Links -->
-    <section class="bg-white rounded-xl shadow-md p-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Resources</h2>
-      <p><a href="https://youtu.be/S2YA47COMnk" class="text-blue-600 hover:underline">Watch the Explanation Video</a>
-      </p>
-      <p><a href="https://github.com/raoguchi/svm_viz_mlb" class="text-blue-600 hover:underline">View Source
-          on GitHub</a></p>
-    </section>
-
-  </main>
+  <!-- Vite injects the correct JS path during build -->
 </body>
 
 </html>
