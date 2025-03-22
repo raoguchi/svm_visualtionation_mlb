@@ -63,7 +63,7 @@
       <li>{@html mathExpression1}</li>
       <li>{@html mathExpression2}</li>
     </ul>
-    <p class="mt-2">Where \( C \) balances margin width and misclassification tolerance.</p>
+    <p class="mt-2">Where \\( C \\) balances margin width and misclassification tolerance.</p>
   </section>
 
   <!-- Resources -->
