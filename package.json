@@ -26,5 +26,5 @@
     "d3": "^7.9.0",
     "ml-svm": "^2.1.2"
   },
-  "homepage": "https://raoguchi.github.io/svm_visualtionation_mlb/"
+  "homepage": "https://raoguchi.github.io/svm_viz_mlb/"
 }
