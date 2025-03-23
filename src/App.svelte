@@ -1,5 +1,30 @@
-<script>
+<script lang="ts">
   import ScatterPlot from './components/ScatterPlot.svelte';
+  import { onMount } from 'svelte';
+
+  // Type declaration to prevent TS error
+  declare global {
+    interface Window {
+      MathJax: {
+        typeset: () => void
+      }
+    }
+  }
+
+  // Re-typeset math after mount
+  onMount(() => {
+    if (window.MathJax) {
+      window.MathJax.typeset();
+    }
+  });
+
+  // LaTeX content as HTML-safe strings
+  const supportVector = `<p>For SVMs, a support vector is a training point such that \\(y_i \\vec{w} \\cdot \\text{Aug}(\\vec{x}^{(i)}) = 1\\).</p>`;
+  const hardSVM = `<p>Hard-SVMs seek perfect classification (no slack):<br>
+    \\(\\vec{w}^\\star = \\sum_{i \\in S} y_i a_i \\text{Aug}(\\vec{x}^{(i)})\\)</p>`;
+  const softSVM = `<p>Soft-SVMs allow some classification error with slack \\(\\epsilon_i\\):<br>
+    \\(\\min_{\\vec{w} \\in \\mathbb{R}^{d+1}, \\vec{\\epsilon} \\in \\mathbb{R}^n} \\lVert \\vec{w} \\rVert^2 + C \\sum_{i=1}^n \\epsilon_i\\)</p>`;
+  const slackExplanation = `<p>Here, \\(C\\) is the slack parameter: Large \\(C\\) reduces misclassifications; small \\(C\\) allows more slack for noisy data.</p>`;
 </script>
 
 <style>
@@ -103,15 +128,10 @@
   <div class="math-box">
     <p>The idea behind maximum margin classifiers is to use linear separability to classify data correctly. SVMs aim for the largest margin between the decision boundary and data points.</p>
 
-    {@html `<p>For SVMs, a support vector is a training point such that \\(y_i \\vec{w} \\cdot \\text{Aug}(\\vec{x}^{(i)}) = 1\\).</p>`}
-
-    {@html `<p>Hard-SVMs seek perfect classification (no slack):<br>
-    \\(\\vec{w}^\\star = \\sum_{i \\in S} y_i a_i \\text{Aug}(\\vec{x}^{(i)})\\)</p>`}
-
-    {@html `<p>Soft-SVMs allow some classification error with slack \\(\\epsilon_i\\):<br>
-    \\(\\min_{\\vec{w} \\in \\mathbb{R}^{d+1}, \\vec{\\epsilon} \\in \\mathbb{R}^n} \\lVert \\vec{w} \\rVert^2 + C \\sum_{i=1}^n \\epsilon_i\\)</p>`}
-
-    {@html `<p>Here, \\(C\\) is the slack parameter: Large \\(C\\) reduces misclassifications; small \\(C\\) allows more slack for noisy data.</p>`}
+    {@html supportVector}
+    {@html hardSVM}
+    {@html softSVM}
+    {@html slackExplanation}
   </div>
 
   <h2>Resource Links</h2>
