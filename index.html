@@ -1,28 +1,68 @@
-<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>SVM Tutorial</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SVM Visualizer</title>
+  <body>
+    
+      <h1>What is a Linear SVM?</h1>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+      <p>Have you guys ever wondered how banks detect fraudulent transactions or how Gmail classifies which email is spam or not? 
+        Well, this is all because of the Support Vector Machines or SVMs which is a powerful algorithm that slices through complex data to uncover any hidden patterns.</p>
 
-  <!-- MathJax for LaTeX -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <p>In simple terms, SVMs basically create a decision boundary that allows the machine to decide what option to pick. Let's go through how this works:</p>
+      
+      <p>Let's say we are looking at the different pitch types in baseball. More specifically, we will be looking at four different pitch types: </p>
+      <p>  -  Four-Seam Fastball (FF) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - Cutter (FC) </p>
+      <p>  - Changeup (CH)  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  - Slider (SL)  </p>
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
-</head>
+      <p>Given only the Release Speed and Release Spin Rate of the ball. Let's train a machine that has no knowledge of baseball and see what pitch type it will 
+        predict based on only the Release Speed and Release Spin Rate </p>
 
-<body>
-  <div id="app"></div>
-  <!-- Vite will inject correct script on build -->
-</body>
+      <p>This visualization below represents the machine after it was trained with the baseball data and the decision boundary that was calculated by the SVM. 
+        Feel free to check out all of the different Pitch Pairs and see where the decision boundary is drawn for each of the combinations. 
+      </p>
 
+      <div id="app"></div>
+      <script type="module" src="./src/main.js"></script>
+      <div>
+        <br>
+
+      <p>Observe that if a new data point is added to the graph, the machine will predict the pitch type to be the same as the majority pitch type on the left/right side of the decision boundary. 
+        For instance, if we are looking at Pitch Pair CH & SL and the new point has a Release Speed of 87 mph and a Release Spin Rate of 2500 rpm then the machine will predict it to be SL as the pitch type. 
+      </p>
+
+      <p>However, notice that in one of the pitch pairs, there was no decision boundary drawn. This is because the data was too close to each other so it wasn't able to calculate an accurate decision boundary. 
+        This is one of the weaknesses of SVMs. This explains why in some rare cases banks would mark something as a fraudulent transaction even though it is not. 
+      </p>
+
+      <p>Nevertheless, SVMs are still one of the most powerful algorithms that is used worldwide to train a machine to make a decision.</p>
+
+      <p>The <b>Key Takeaway</b> of this project is that we hope that people learn how the machine makes a decision behind the scenes and how vital SVM is since it calculates the decision boundary which ultimately decides 
+        what decision the machine should make. With the help of our visualization, it clearly shows that without the decision boundary, the machine will be unable to make a good decision. This is how big companies like 
+        Google or Meta detect spam emails or messages. 
+      </p>
+
+      <h2> The Math behind SVM</h2>
+
+      <p>The idea behind maximum margin classifers are to implement linear separability to correctly classify data into categories.<br>
+        Support Vector Machines are a form of margin margin classifers that aim to have large margins between the decision boundary and training point.<br>
+      </p>
+      <p>For SVMs, a support vector is a training point such that \(y_i \vec{w} \cdot \text{Aug}(\vec{x}^{(i)}) = 1\)<br>
+        Solutions for Hard-SVMs aim to have perfect classification with no slack; therefore, the solution for the problem becomes \(\vec{w}^\star\ = \sum_{i \in S} y_i a_i \text{Aug}(\vec{x}^{(i)})\)</p>
+      <p>Alternatively, we the soft-SVM problem allows for some classifications to be wrong with distance \(\epsilon_i \)<br>
+        The problem becomes: \(\min_{\vec(w) \in \mathbb{R}^{d+1}, \vec{\epsilon} \in \mathbb{R}^n} \lVert{\vec{w}}\rVert^2 + C \sum_{i=1}^n \epsilon_i \)<br>
+        Where, \(C\) is considered the slack parameter: Large \(C\) avoids misclassifications with low slack and Small \(C\) allows for more slack at the cost of misclassifications.
+      </p>
+
+      <h2>Resources Links</h2>
+      <p>Video Link: <a href="https://youtu.be/S2YA47COMnk">CLICK HERE</a></p>
+      <p>Github Repo: <a href="https://github.com/bhakin/bhakin.github.io">CLICK HERE</a>.</p>
+
+    </div>
+  </body>
 </html>

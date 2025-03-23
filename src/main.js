@@ -1,8 +1,8 @@
-import App from './App.svelte';
-import './global.css';  // Ensure your CSS file is included
+import './app.css'
+import App from './App.svelte'
 
 const app = new App({
-  target: document.getElementById('app'),  // This should mount your app to the div with id="app"
-});
+  target: document.getElementById('app'),
+})
 
-export default app;
+export default app

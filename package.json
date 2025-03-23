@@ -11,17 +11,16 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "@tailwindcss/postcss": "^4.0.15",
-    "gh-pages": "^6.3.0",
-    "svelte": "^5.25.2",
-    "vite": "^6.2.2"
+    "@sveltejs/vite-plugin-svelte": "^3.0.2",
+    "svelte": "^4.2.12",
+    "vite": "^5.4.14"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",
     "@vitejs/plugin-react": "^4.3.0",
     "d3": "^7.9.0",
+    "gh-pages": "^6.1.1",
     "ml-svm": "^2.1.2"
   },
-  "homepage": "https://raoguchi.github.io/svm_viz_mlb/"
+  "homepage": "https://github.com/raoguchi/svm_viz_mlb"
 }

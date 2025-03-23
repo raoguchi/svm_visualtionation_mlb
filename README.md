@@ -1,36 +1,47 @@
-# Linear SVM Visualizer
+# Svelte + Vite
 
-### By Alex Oguchi and Bhakin Phaneksiri
+This template should help get you started developing with Svelte in Vite.
 
-An interactive educational web app that demonstrates how linear Support Vector Machines (SVMs) work. Built with **Svelte** and **Vite**, it allows users to explore the concepts of hard and soft SVMs, support vectors, and margin optimization through hands-on manipulation of parameters and decision boundaries.
+## Recommended IDE Setup
 
-## 🔍 Overview
+[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
 
-This tool visualizes the behavior of linear SVM classifiers. It highlights:
+## Need an official Svelte framework?
 
-- The concept of maximum margin classifiers.
-- The role of support vectors.
-- The optimization objectives for hard and soft SVMs.
-- How changing weights (\(\vec{w}\)) affects classification boundaries.
+Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
 
-MathJax is used to render mathematical equations on the page, enhancing clarity for mathematical concepts.
+## Technical considerations
 
-## ⚙️ Tech Stack
+**Why use this over SvelteKit?**
 
-- **Framework**: [Svelte](https://svelte.dev/)
-- **Bundler**: [Vite](https://vitejs.dev/)
-- **Visualization**: [D3.js](https://d3js.org/), [Plotly.js](https://plotly.com/javascript/)
-- **Machine Learning**: `ml-svm`, `libsvm-js`, `ml-levenberg-marquardt`
+- It brings its own routing solution which might not be preferable for some users.
+- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
 
-## 🚀 Getting Started
+This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
 
-### Prerequisites
+Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
 
-- Node.js ≥ 18.x
+**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
 
-### Installation
+Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
 
-```bash
-git clone <your-repo-url>
-cd final_project
-npm install
+**Why include `.vscode/extensions.json`?**
+
+Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+
+**Why enable `checkJs` in the JS template?**
+
+It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+
+**Why is HMR not preserving my local component state?**
+
+HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+
+If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+
+```js
+// store.js
+// An extremely simple external store
+import { writable } from 'svelte/store'
+export default writable(0)
+```
