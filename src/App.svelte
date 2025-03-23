@@ -83,13 +83,6 @@
 
 <style>
   /* Custom styles with plain CSS */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
 
   h1 {
     font-size: 2.5rem;
