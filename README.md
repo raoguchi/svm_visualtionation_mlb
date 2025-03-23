@@ -1,5 +1,7 @@
 # ⚾️ SVM Pitch Classifier Visualization
 
+### By Alex Oguchi and Bhakin Phaneksiri
+
 An interactive web-based tutorial and visualizer demonstrating how **Support Vector Machines (SVMs)** work using real MLB pitch data.
 
 This project allows users to explore how a machine learning model makes decisions using only two features: **Release Speed** and **Release Spin Rate**, to classify pitch types such as Fastballs, Sliders, Changeups, and more.
